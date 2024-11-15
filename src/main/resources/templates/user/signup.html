@@ -12,16 +12,16 @@
     <form action="/user/signup" method="post" th:object="${memberShipDTO}">
 
         이름 : <input name="name" th:field="*{name}" class="name"> <br>
-        <p th:if="${#fields.hasAnyErrors('name')}" th:errors="*{name}" class="fieldError"></p>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError"></p>
 
         email : <input name="email" th:field="*{email}"><br>
-        <p th:if="${#fields.hasAnyErrors('email')}" th:errors="*{email}" class="fieldError"></p>
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError"></p>
 
         password : <input name="password" required minlength="10" maxlength="16" th:field="*{password}"><br>
-        <p th:if="${#fields.hasAnyErrors('password')}" th:errors="*{password}" class="fieldError"></p>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="fieldError"></p>
 
         address : <input name="address" th:field="*{address}" required> <br>
-        <p th:if="${#fields.hasAnyErrors('address')}" th:errors="*{address}" class="fieldError"></p>
+        <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="fieldError"></p>
 
         <button type="submit">가입하기</button>
         <button>로그인</button>

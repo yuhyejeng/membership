@@ -25,7 +25,7 @@ public class SecurityConfig {
                 // 권한 페이지 접속권한
                 .authorizeHttpRequests(
                         authorization -> authorization
-                                .requestMatchers("/user/signup").permitAll() //로그인페이지는 누구나 접속이 가능한 권한
+                                .requestMatchers("/user/login/**").permitAll() //로그인페이지는 누구나 접속이 가능한 권한
                                 .requestMatchers("/board/register").authenticated() //로그인 한 사람만 접속 가능
                                 .requestMatchers("/item/register").hasRole("ADMIN")
                                 .requestMatchers("/user/list").hasRole("ADMIN")
@@ -37,7 +37,7 @@ public class SecurityConfig {
                 // 로그인
                 .formLogin(
                         formLogin -> formLogin.loginPage("/user/login") //기본 로그인 페이지 지정
-                                .defaultSuccessUrl("/")                 //로그인이 성공했다면
+                                .defaultSuccessUrl("/user/login")                 //로그인이 성공했다면
                                 .usernameParameter("email")             //로그인 <input name="email">
                         //컨트롤러로 보낼때~~
                 )
